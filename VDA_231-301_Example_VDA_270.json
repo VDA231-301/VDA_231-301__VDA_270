@@ -1,0 +1,423 @@
+{
+  "_id": "00000000-0000-0000-0000-000000000000",
+  "_type": "TestReport",
+  "_schemaVersion": "0.0.2",
+  "ClientOrderNumber": "75034211 - 213234422 - version B",
+  "LaboratoryOrderNumber": "334233421334",
+  "OrderReference": "BR167 // DBL 5471.09",
+  "OrderDate": {
+    "Date": "2023-10-05"
+  },
+  "ReportDate": {
+    "Date": "2023-10-30"
+  },
+  "Client": {
+    "_id": "00000000-0000-0000-0000-000000000000",
+    "_type": "Location",
+    "Identification": [
+      {
+        "Type": "IntLocID",
+        "Identifier": "006620342"
+      }
+    ],
+    "Name": "Generic Automotive Company"
+  },
+  "Contractor": {
+    "_id": "00000000-0000-0000-0000-000000000000",
+    "_type": "TestingCenter",
+    "Location": {
+      "_id": "00000000-0000-0000-0000-000000000000",
+      "_type": "Location",
+      "Name": "Testlab GmbH",
+      "Identification": [
+        {
+          "Type": "IntLocID",
+          "Identifier": "180945476"
+        }
+      ],
+      "Address": {
+        "_id": "dd317ad2-70a8-4e92-be06-eb1f8d3e4bd1",
+        "_type": "ContactDetails",
+        "Phone": "+49 222 333 444",
+        "Fax": "+49 222 333 445",
+        "EMail": "info@testlab.com"
+      }
+    },
+    "TestingManager": {
+      "_id": "00000000-0000-0000-0000-000000000000",
+      "_type": "Person",
+      "FirstName": "John",
+      "LastName": "Doe",
+      "OrganizationIdentification": [
+        {
+          "Type": "IntLocID",
+          "Identifier": "180945476"
+        }
+      ],
+      "ID-Number": "9827398732",
+      "EMail": "john.doe@testlab.com"
+    },
+    "Certifications": [
+      {
+        "_id": "00000000-0000-0000-0000-000000000000",
+        "_type": "Certification",
+        "Specification": {
+          "Authority": "DIN",
+          "Type": "DIN EN ISO/IEC",
+          "Number": "17025",
+          "IssueDate": "2018-03"
+        },
+        "AccreditationDate": {
+          "Date": "2019-11-01"
+        },
+        "ValidUntil": {
+          "Date": "2024-11-01"
+        }
+      },
+      {
+        "_id": "00000000-0000-0000-0000-000000000000",
+        "_type": "Certification",
+        "Specification": {
+          "Authority": "Manufacturer",
+          "Type": "BQF ECM",
+          "IssueDate": "2019-01",
+          "Number": "1001"
+        },
+        "AccreditationDate": {
+          "Date": "2019-11-01"
+        }
+      }
+    ]
+  },
+  "Components": [
+    {
+      "_id": "db218846-88c1-4cdb-a9b2-76925b1d6884",
+      "_type": "Component",
+      "Designation": "Part 4711",
+      "PartNumber": "X1234567890"
+    }
+  ],
+  "TestSeries": [
+    {
+      "_id": "00000000-0000-0000-0000-000000000000",
+      "_type": "TestSeries",
+      "PredecessorId": null,
+      "SuccessorId": null,
+      "Specification": {
+        "Type": "VDA",
+        "Number": "270",
+        "IssueDate": "2022-05",
+        "Title": "Odor test",
+        "FeatureText": "Variant 3B"
+      },
+      "TestType" : "VDA 270",
+      "NumberOfExecutions": 1,
+      "TestingCenter": {
+        "_id": "00000000-0000-0000-0000-000000000000",
+        "_type": "TestingCenter",
+        "Location": {
+          "_id": "00000000-0000-0000-0000-000000000000",
+          "_type": "Location",
+          "Name": "Testlab GmbH",
+          "Identification": [
+            {
+              "Type": "IntLocID",
+              "Identifier": "180945476"
+            }
+          ],
+          "Address": {
+            "_id": "7854f7d9-b651-40f8-b480-18101d83c9d7",
+            "_type": "ContactDetails",
+            "Phone": "+49 222 333 444",
+            "Fax": "+49 222 333 445",
+            "EMail": "info@testlab.com"
+          }
+        },
+        "TestingManager": {
+          "_id": "00000000-0000-0000-0000-000000000000",
+          "_type": "Person",
+          "FirstName": "John",
+          "LastName": "Doe",
+          "OrganizationIdentification": [
+            {
+              "Type": "IntLocID",
+              "Identifier": "180945476"
+            }
+          ],
+          "ID-Number": "5354435453",
+          "EMail": "john.doe@testlab.com"
+        },
+        "Certifications": [
+          {
+            "_id": "00000000-0000-0000-0000-000000000000",
+            "_type": "Certification",
+            "Specification": {
+              "Authority": "DIN",
+              "Type": "DIN EN ISO/IEC",
+              "Number": "17025",
+              "IssueDate": "2018-03"
+            },
+            "AccreditationDate": {
+              "Date": "2019-11-01"
+            },
+            "ValidUntil": {
+              "Date": "2024-11-01"
+            }
+          },
+          {
+            "_id": "00000000-0000-0000-0000-000000000000",
+            "_type": "Certification",
+            "Specification": {
+              "Authority": "Manufacturer",
+              "Type": "BQF ECM",
+              "IssueDate": "2019-01",
+              "Number": "1001"
+            },
+            "AccreditationDate": {
+              "Date": "2019-11-01"
+            }
+          }
+        ]
+      },
+      "Executions": [
+        {
+          "_id": "00000000-0000-0000-0000-000000000000",
+          "_type": "TestExecution",
+          "Numerator": 1,
+          "Designation": "14345",
+          "Specimen": {
+            "_id": "00000000-0000-0000-0000-000000000000",
+            "_type": "Specimen",
+            "Designation": "14345 // ffsfhhsjhf jsf // adüö // asddas // C323524324323",
+            "ComponentID": "db218846-88c1-4cdb-a9b2-76925b1d6884",
+            "Flagging": "Test specimen according to attachment",
+            "Attachment": {
+              "_id": "00000000-0000-0000-0000-000000000000",
+              "_type": "Attachment",
+              "FileName": "sample_vda270.jpg",
+              "MimeType": "application/jpeg",
+              "Encoding": "base64",
+              "Hashes": [
+                {
+                  "Type": "md5",
+                  "Value": "b3650c44f580b14995bd77284a9dda8d"
+                }
+              ],
+              "Designation": "Specimen A",
+              "Data": "JVBERi0xLjQNJeLjz9MNCjQxIDAgb2JqDTw8L0xpbmVhcml6ZWQ="
+            },
+            "ProcessHistory": [
+              {
+                "_id": "96410e2e-4437-4e38-8cca-3de62cac5cc9",
+                "_type": "ProcessStep",
+                "Index": 1,
+                "Specification": {
+                  "Authority": "ISO",
+                  "Number": "DIN EN ISO 291",
+                  "IssueDate": "2008-08",
+                  "Title": "Normal climate",
+                  "FeatureText": "23/50",
+                  "Type": ""
+                },
+                "ProcessData": {
+                  "_id": "00000000-0000-0000-0000-000000000000",
+                  "_type": "InformationSet",
+                  "Designation": "Preconditioning",
+                  "Attributes": [
+                    {
+                      "Property": "Duration",
+                      "Unit": "d",
+                      "Value": 7
+                    },
+                    {
+                      "Property": "EndDate",
+                      "Value": {
+                        "Date": "2023-09-25"
+                      }
+                    },
+                    {
+                      "Property": "Temperature",
+                      "Unit": "degreeC",
+                      "ValueType": "NumberWithTolerance",
+                      "Value": [
+                        22,
+                        {
+                          "MinTolerance": -2,
+                          "MaxTolerance": 2
+                        }
+                      ]
+                    },
+                    {
+                      "Property": "Rel. Humidity",
+                      "Unit": "%",
+                      "ValueType": "NumberWithTolerance",
+                      "Value": [
+                        47,
+                        {
+                          "MinTolerance": -10,
+                          "MaxTolerance": 10
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "_type": "ProcessStep",
+                "_id": "7c2a9315-5e1b-49e9-af0f-b3eb5cda1ebc",
+                "Index": 2,
+                "Specification": {
+                  "Authority": "VDA",
+                  "IssueDate": "2022-05",
+                  "Title": "Odor test",
+                  "FeatureText": "Variant 3B",
+                  "Type": "VDA",
+                  "Number": "270"
+                },
+                "ProcessData": {
+                  "_id": "00000000-0000-0000-0000-000000000000",
+                  "_type": "InformationSet",
+                  "Designation": "Preconditioning",
+                  "Attributes": [
+                    {
+                      "Property": "Duration",
+                      "Unit": "min",
+                      "ValueType": "NumberWithTolerance",
+                      "Value": [
+                        120,
+                        {
+                          "MinTolerance": -10,
+                          "MaxTolerance": 10
+                        }
+                      ]
+                    },
+                    {
+                      "Property": "EndDate",
+                      "Value": {
+                        "Date": "2023-09-25"
+                      }
+                    },
+                    {
+                      "Property": "Temperature",
+                      "Unit": "°C",
+                      "ValueType": "NumberWithTolerance",
+                      "Value": [
+                        80,
+                        {
+                          "MinTolerance": -2,
+                          "MaxTolerance": 2
+                        }
+                      ]
+                    },
+                    {
+                      "Property": "AmountOfWaterInTestVessel",
+                      "Unit": "ml",
+                      "Value": 0
+                    }
+                  ]
+                }
+              }
+            ],
+            "AdditionalProperties": {
+              "_id": "00000000-0000-0000-0000-000000000000",
+              "_type": "InformationSet",
+              "Attributes": [
+                {
+                  "Property": "VolumeOfTestVessel",
+                  "Unit": "l",
+                  "Value": 1
+                }
+              ]
+            }
+          },
+          "MeasurementSystems": [
+          ],
+          "RawData": [
+            {
+              "_id": "00000000-0000-0000-0000-000000000000",
+              "_type": "InformationSet",
+              "Designation": "Odor test result",
+              "ArraySpec": [
+                {
+                  "Property": "Tester number"
+                },
+                {
+                  "Property": "Odor grading",
+                  "Unit": "Grade"
+                },
+                {
+                  "Property": "Odor impressions"
+                },
+                {
+                  "Property": "Localized odor impressions"
+                },
+                {
+                  "Property": "ConsolidatedValueIDs"
+                }
+              ],
+              "ArrayValue": [
+                [
+                  1,
+                  3.5,
+                  [
+                  ],
+                  [
+                  ],
+                  [
+                    "dda5b902-63df-4913-9224-111111111111"
+                  ]
+                ],
+                [
+                  2,
+                  3.5,
+                  [
+                  ],
+                  [
+                  ],
+                  [
+                    "dda5b902-63df-4913-9224-111111111111"
+                  ]
+                ],
+                [
+                  3,
+                  4,
+                  [
+                    "roasted / burnt"
+                  ],
+                  [
+                    "geröstet / verbrannt"
+                  ],
+                  [
+                    "dda5b902-63df-4913-9224-111111111111",
+                    "66d4c362-4784-4bd2-a988-222222222222"
+                  ]
+                ]
+              ]
+            }
+          ],
+          "SingleResults": [
+          ]
+        }
+      ],
+      "ConsolidatedCharacteristicValues": [
+        {
+          "_id": "dda5b902-63df-4913-9224-111111111111",
+          "_type": "ConsolidatedCharacteristicValue",
+          "Aggregation": "Rounded mean value",
+          "Property": "Odor grading",
+          "Unit": "Grade",
+          "Value": 3.5,
+          "ValueResolution": 0.5
+        },
+        {
+          "_id": "66d4c362-4784-4bd2-a988-222222222222",
+          "_type": "ConsolidatedCharacteristicValue",
+          "Aggregation": "None",
+          "Property": "Odor impression",
+          "Value": "roasted / burnt",
+          "LocalizedText": "geröstet / verbrannt"
+        }
+      ]
+    }
+  ]
+}
