@@ -1,4 +1,4 @@
-- **VDA 270**
+# VDA 270
     - Title: "Determination of the odour characteristics of trim materials in motor vehicles"
     - Schema: [VDA_231-301_Schema_VDA_270.json](./VDA_231-301_Schema_VDA_270.json)
     - Example test report JSON: [VDA278_Example.json](./VDA_231-301_Example_VDA_270.json)
