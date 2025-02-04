@@ -1,3 +1,5 @@
+![VDS 270](https://github.com/user-attachments/assets/3379067c-6783-4d68-8bc6-dcedcb572699)
+
 # VDA 270
     - Title: "Determination of the odour characteristics of trim materials in motor vehicles"
     - Schema: [VDA_231-301_Schema_VDA_270.json](./VDA_231-301_Schema_VDA_270.json)
