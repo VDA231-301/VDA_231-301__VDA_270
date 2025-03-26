@@ -61,11 +61,11 @@
       "type": "array"
     },
     "TestSeries": {
-      "items": {
-        "$ref": "#/$defs/Generic.TestSeries"
-      },
+      "type": "array",
       "minItems": 1,
-      "type": "array"
+      "items": {
+        "$ref": "#/$defs/VDA270.BranchingTestSeries"
+      }
     }
   },
   "required": [
@@ -77,6 +77,7 @@
     "OrderReference",
     "OrderDate",
     "ReportDate",
+    "Signatory",
     "Client",
     "Contractor",
     "Components",
@@ -96,6 +97,9 @@
           "type": "number"
         },
         "ValueResolution": {
+          "type": "number"
+        },
+        "LimitOfDetermination": {
           "type": "number"
         },
         "MeasurementInaccuracy": {
@@ -159,6 +163,9 @@
           "$ref": "#/$defs/Generic.NumberWithTolerance"
         },
         {
+          "$ref": "#/$defs/Generic.Date"
+        },
+        {
           "description": "A null value",
           "type": "null"
         }
@@ -203,10 +210,7 @@
         "_type",
         "Data",
         "FileName",
-        "MimeType",
-        "Encoding",
-        "Hashes",
-        "Designation"
+        "Encoding"
       ]
     },
     "Generic.Base64Encoding": {
@@ -261,6 +265,9 @@
         },
         "Address": {
           "$ref": "#/$defs/Generic.ContactDetails"
+        },
+        "AddressNativeLanguage": {
+          "$ref": "#/$defs/Generic.ContactDetailsNative"
         }
       },
       "required": [
@@ -289,10 +296,7 @@
               "$ref": "#/$defs/Generic.RestrictedString"
             },
             "Comment": {
-              "type": [
-                "string",
-                "null"
-              ]
+              "$ref": "#/$defs/Generic.RestrictedText"
             },
             "CriterionType": {
               "$ref": "#/$defs/Generic.RestrictedString"
@@ -321,6 +325,12 @@
           "type": "string"
         },
         "Street": {
+          "$ref": "#/$defs/Generic.ProperNameString"
+        },
+        "Street2": {
+          "$ref": "#/$defs/Generic.ProperNameString"
+        },
+        "Street3": {
           "$ref": "#/$defs/Generic.ProperNameString"
         },
         "HouseNumber": {
@@ -357,6 +367,59 @@
         "_type",
         "Phone",
         "EMail"
+      ],
+      "type": "object"
+    },
+    "Generic.ContactDetailsNative": {
+      "additionalProperties": false,
+      "properties": {
+        "_id": {
+          "$ref": "#/$defs/Generic.Identifier"
+        },
+        "_type": {
+          "const": "ContactDetailsNative",
+          "type": "string"
+        },
+        "Street": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "Street2": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "Street3": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "HouseNumber": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "AdditionToAddress": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "ZipCode": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "City": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "StateRegion": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "Country": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "EMail": {
+          "format": "email",
+          "type": "string"
+        },
+        "Fax": {
+          "$ref": "#/$defs/Generic.LongString"
+        },
+        "Phone": {
+          "$ref": "#/$defs/Generic.LongString"
+        }
+      },
+      "required": [
+        "_type"
       ],
       "type": "object"
     },
@@ -560,6 +623,9 @@
         "ValueResolution": {
           "type": "number"
         },
+        "LimitOfDetermination": {
+          "type": "number"
+        },
         "MeasurementInaccuracy": {
           "type": "number"
         },
@@ -665,6 +731,13 @@
       "pattern": "^(?!\\s).*(?<!\\s)$",
       "type": "string"
     },
+    "Generic.RestrictedText": {
+      "description": "A string with max length of 1000 and only 7-bit ASCII characters",
+      "maxLength": 1000,
+      "minLength": 0,
+      "pattern": "^[\\x20-\\x7E]*$",
+      "type": "string"
+    },
     "Generic.MeasurementSystem": {
       "additionalProperties": false,
       "properties": {
@@ -704,8 +777,7 @@
         "_id",
         "_type",
         "Designation",
-        "SystemType",
-        "Location"
+        "SystemType"
       ],
       "type": "object"
     },
@@ -760,7 +832,7 @@
           "description": "The information set related to this process step."
         },
         "Comment": {
-          "$ref": "#/$defs/Generic.LongString"
+          "$ref": "#/$defs/Generic.RestrictedText"
         },
         "Attachment": {
           "$ref": "#/$defs/Generic.Attachment"
@@ -834,14 +906,18 @@
           "$ref": "#/$defs/Generic.LongString"
         },
         "FeatureText": {
-          "$ref": "#/$defs/Generic.RestrictedString"
+          "$ref": "#/$defs/Generic.LongString"
         },
         "FeatureList": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/Generic.RestrictedString"
           },
-          "example": [ "23", "R", "6/4" ]
+          "example": [
+            "23",
+            "R",
+            "6/4"
+          ]
         },
         "DOI": {
           "type": "string"
@@ -873,10 +949,7 @@
               "$ref": "#/$defs/Generic.Identifier"
             },
             "Comment": {
-              "type": [
-                "string",
-                "null"
-              ]
+              "$ref": "#/$defs/Generic.RestrictedText"
             },
             "Attachment": {
               "$ref": "#/$defs/Generic.Attachment"
@@ -903,7 +976,7 @@
           "$ref": "#/$defs/Generic.RestrictedString"
         },
         "Comment": {
-          "$ref": "#/$defs/Generic.LongString"
+          "$ref": "#/$defs/Generic.RestrictedText"
         },
         "ComponentID": {
           "$ref": "#/$defs/Generic.Identifier"
@@ -1054,6 +1127,27 @@
         "MaterialName": {
           "$ref": "#/$defs/Generic.RestrictedString"
         },
+        "MaterialIdentifiers": {
+          "items": {
+            "$ref": "#/$defs/Generic.RestrictedString"
+          },
+          "type": "array",
+          "description": "According to VDA 231-300"
+        },
+        "SurfaceIdentifiers": {
+          "items": {
+            "$ref": "#/$defs/Generic.RestrictedString"
+          },
+          "type": "array",
+          "description": "According to VDA 231-300"
+        },
+        "Specifications": {
+          "items": {
+            "$ref": "#/$defs/Generic.Specification"
+          },
+          "type": "array",
+          "description": "A list of associated specifications regarding this component."
+        },
         "LayerSequence": {
           "$ref": "#/$defs/Generic.InformationSet"
         },
@@ -1065,6 +1159,18 @@
             "$ref": "#/$defs/Generic.Attachment"
           },
           "type": "array"
+        },
+        "DeviationSpecificationText": {
+          "$ref": "#/$defs/Generic.RestrictedText",
+          "description": "The text describing allowed deviation from the specification."
+        },
+        "DeviationSpecificationCodeFile": {
+          "$ref": "#/$defs/Generic.Attachment",
+          "description": "The JSON file containing the deviation specification code."
+        },
+        "Comment": {
+          "$ref": "#/$defs/Generic.RestrictedText",
+          "description": "Additional information about the component."
         }
       },
       "required": [
@@ -1073,197 +1179,77 @@
       ],
       "type": "object"
     },
-
-
-
-
-
-
-
-
     "Generic.TestSeries": {
-      "type": "object",
-
-
-      "if": {
-        "properties": {
-          "Specification": {
-            "type": "object",
-            "properties": {
-              "Type": {
-                "const": "VDA",
-                "type": "string"
-              },
-              "Number": {
-                "const": "270",
-                "type": "string"
-              },
-              "IssueDate": {
-                "const": "2022-05",
-                "type": "string"
-              }
-            }
-          }
+      "additionalProperties": false,
+      "properties": {
+        "_id": {
+          "$ref": "#/$defs/Generic.Identifier"
+        },
+        "_type": {
+          "const": "TestSeries",
+          "type": "string"
+        },
+        "Specification": {
+          "$ref": "#/$defs/Generic.Specification"
+        },
+        "TestType": {
+          "$ref": "#/$defs/Generic.RestrictedString"
+        },
+        "AdditionalInformation": {
+          "$ref": "#/$defs/Generic.InformationSet",
+          "additionalProperties": false
+        },
+        "NumberOfExecutions": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "Assessment": {
+          "type": "string"
+        },
+        "PredecessorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SuccessorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "TestingCenter": {
+          "$ref": "#/$defs/Generic.TestingCenter"
+        },
+        "Comment": {
+          "$ref": "#/$defs/Generic.RestrictedText"
+        },
+        "Executions": {
+          "items": {
+            "$ref": "#/$defs/Generic.TestExecution"
+          },
+          "type": "array"
+        },
+        "ConsolidatedCharacteristicValues": {
+          "items": {
+            "$ref": "#/$defs/Generic.ConsolidatedCharacteristicValue"
+          },
+          "minItems": 1,
+          "type": "array"
         }
       },
-
-
-      "then": {
-        "additionalProperties": false,
-        "properties": {
-          "_id": {
-            "$ref": "#/$defs/Generic.Identifier"
-          },
-          "_type": {
-            "const": "TestSeries",
-            "type": "string"
-          },
-          "Specification": {
-            "$ref": "#/$defs/Generic.Specification"
-          },
-          "TestType": {
-            "$ref": "#/$defs/Generic.RestrictedString"
-          },
-          "FeaturesAccordingToSpecification": {
-            "$ref": "#/$defs/Generic.RestrictedString"
-          },
-          "AdditionalInformation": {
-            "$ref": "#/$defs/Generic.InformationSet",
-            "additionalProperties": false
-          },
-          "NumberOfExecutions": {
-            "minimum": 1,
-            "type": "integer"
-          },
-          "Assessment": {
-            "type": "string"
-          },
-          "PredecessorId": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "SuccessorId": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "TestingCenter": {
-            "$ref": "#/$defs/Generic.TestingCenter"
-          },
-          "Comment": {
-            "$ref": "#/$defs/Generic.RestrictedString"
-          },
-          "Executions": {
-            "items": {
-              "$ref": "#/$defs/VDA270.TestExecution"
-            },
-            "type": "array"
-          },
-          "ConsolidatedCharacteristicValues": {
-            "items": {
-              "$ref": "#/$defs/VDA270.ConsolidatedCharacteristicValue"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "_id",
-          "_type",
-          "TestType",
-          "Specification",
-          "NumberOfExecutions",
-          "TestingCenter",
-          "ConsolidatedCharacteristicValues",
-          "PredecessorId",
-          "SuccessorId"
-        ]
-      },
-      "else": {
-        "additionalProperties": false,
-        "properties": {
-          "_id": {
-            "$ref": "#/$defs/Generic.Identifier"
-          },
-          "_type": {
-            "const": "TestSeries",
-            "type": "string"
-          },
-          "Specification": {
-            "$ref": "#/$defs/Generic.Specification"
-          },
-          "TestType": {
-            "$ref": "#/$defs/Generic.RestrictedString"
-          },
-          "FeaturesAccordingToSpecification": {
-            "$ref": "#/$defs/Generic.RestrictedString"
-          },
-          "AdditionalInformation": {
-            "$ref": "#/$defs/Generic.InformationSet",
-            "additionalProperties": false
-          },
-          "NumberOfExecutions": {
-            "minimum": 1,
-            "type": "integer"
-          },
-          "Assessment": {
-            "type": "string"
-          },
-          "PredecessorId": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "SuccessorId": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "TestingCenter": {
-            "$ref": "#/$defs/Generic.TestingCenter"
-          },
-          "Comment": {
-            "$ref": "#/$defs/Generic.RestrictedString"
-          },
-          "Executions": {
-            "items": {
-              "$ref": "#/$defs/Generic.TestExecution"
-            },
-            "type": "array"
-          },
-          "ConsolidatedCharacteristicValues": {
-            "items": {
-              "$ref": "#/$defs/Generic.ConsolidatedCharacteristicValue"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "_id",
-          "_type",
-          "Specification",
-          "NumberOfExecutions",
-          "TestingCenter",
-          "ConsolidatedCharacteristicValues",
-          "PredecessorId",
-          "SuccessorId"
-        ]
-      }
+      "required": [
+        "_id",
+        "_type",
+        "Specification",
+        "NumberOfExecutions",
+        "PredecessorId",
+        "SuccessorId",
+        "TestingCenter",
+        "ConsolidatedCharacteristicValues"
+      ],
+      "type": "object"
     },
-
-
-
-
-
-
-
-
     "Generic.RestrictedString": {
       "allOf": [
         {
@@ -1277,8 +1263,8 @@
           }
         }
       ],
-      "description": "A string with max length of 45, no leading or trailing whitespace, and only 7-bit ASCII characters",
-      "maxLength": 45,
+      "description": "A string with max length of 50, no leading or trailing whitespace, and only 7-bit ASCII characters",
+      "maxLength": 50,
       "minLength": 0,
       "pattern": "^[\\x20-\\x7E]*$",
       "type": "string"
@@ -1328,6 +1314,151 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "VDA270.BranchingTestSeries": {
+      "type": "object",
+
+
+      "if": {
+        "properties": {
+          "Specification": {
+            "type": "object",
+            "properties": {
+              "Type": {
+                "const": "VDA",
+                "type": "string"
+              },
+              "Number": {
+                "const": "270",
+                "type": "string"
+              },
+              "IssueDate": {
+                "const": "2022-05",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+
+
+      "then": {
+        "$ref": "#/$defs/VDA270.TestSeries"
+      },
+      "else": {
+        "$ref": "#/$defs/Generic.TestSeries"
+      }
+    },
+    "VDA270.TestSeries": {
+      "type": "object",
+
+      "additionalProperties": false,
+      "properties": {
+        "_id": {
+          "$ref": "#/$defs/Generic.Identifier"
+        },
+        "_type": {
+          "const": "TestSeries",
+          "type": "string"
+        },
+        "Specification": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/Generic.Specification"
+            },
+            {
+              "properties": {
+                "Type": {
+                  "const": "VDA",
+                  "type": "string"
+                },
+                "Number": {
+                  "const": "270",
+                  "type": "string"
+                },
+                "IssueDate": {
+                  "const": "2022-05",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "TestType": {
+          "$ref": "#/$defs/Generic.RestrictedString"
+        },
+        "FeaturesAccordingToSpecification": {
+          "$ref": "#/$defs/Generic.RestrictedString"
+        },
+        "AdditionalInformation": {
+          "$ref": "#/$defs/Generic.InformationSet",
+          "additionalProperties": false
+        },
+        "NumberOfExecutions": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "Assessment": {
+          "type": "string"
+        },
+        "PredecessorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SuccessorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "TestingCenter": {
+          "$ref": "#/$defs/Generic.TestingCenter"
+        },
+        "Comment": {
+          "$ref": "#/$defs/Generic.RestrictedString"
+        },
+        "Executions": {
+          "items": {
+            "$ref": "#/$defs/VDA270.TestExecution"
+          },
+          "type": "array"
+        },
+        "ConsolidatedCharacteristicValues": {
+          "items": {
+            "$ref": "#/$defs/VDA270.ConsolidatedCharacteristicValue"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "_id",
+        "_type",
+        "TestType",
+        "Specification",
+        "NumberOfExecutions",
+        "TestingCenter",
+        "ConsolidatedCharacteristicValues",
+        "PredecessorId",
+        "SuccessorId"
+      ]
+    },
 
 
 
@@ -1448,43 +1579,33 @@
 
 
     "VDA270.ArraySpecEvaluation": {
-      "description": "An array specification for storing VDA270 testing evaluations.",
-      "prefixItems": [
-        {
-          "const": {
-            "Property": "Tester number"
-          }
-        },
-        {
-          "const": {
-            "Property": "Odor grading",
-            "Unit": "Grade"
-          }
-        },
-        {
-          "const": {
-            "Property": "Odor impressions"
-          }
-        },
-        {
-          "const": {
-            "Property": "Localized odor impressions"
-          }
-        },
-        {
-          "const": {
-            "Property": "ConsolidatedValueIDs"
-          }
-        }
-      ],
+      "type": "array",
       "minItems": 5,
       "maxItems": 5,
-      "type": "array"
+      "description": "An array specification for storing VDA 270 testing evaluations.",
+      "const": [
+        {
+          "Property": "Tester number"
+        },
+        {
+          "Property": "Odor grading",
+          "Unit": "Grade"
+        },
+        {
+          "Property": "Odor impressions"
+        },
+        {
+          "Property": "Localized odor impressions"
+        },
+        {
+          "Property": "ConsolidatedValueIDs"
+        }
+      ]
     },
 
 
     "VDA270.ArrayValueEvaluation": {
-      "description": "An array value type for storing VDA270 testing evaluations.",
+      "description": "An array value type for storing VDA 270 testing evaluations.",
       "prefixItems": [
         {
           "type": "integer",
@@ -1743,3 +1864,4 @@
 
   }
 }
+
