@@ -65,7 +65,10 @@
       "minItems": 1,
       "items": {
         "$ref": "#/$defs/VDA270.BranchingTestSeries"
-      }
+      },
+      "contains": {
+        "$ref": "#/$defs/VDA270.TestSeries"
+      }     
     }
   },
   "required": [
