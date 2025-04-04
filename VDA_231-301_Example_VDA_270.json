@@ -1,65 +1,51 @@
 {
-  "_id": "00000000-0000-0000-0000-000000000000",
+  "_id": "01917fb1-6d60-8abc-8abc-017617032d5c",
   "_type": "TestReport",
   "_schemaVersion": "0.0.2",
-  "ClientOrderNumber": "75034211 - 213234422 - version B",
-  "LaboratoryOrderNumber": "334233421334",
-  "OrderReference": "BR167 // DBL 5471.09",
-  "OrderDate": {
-    "Date": "2023-10-05"
-  },
-  "ReportDate": {
-    "Date": "2023-10-30"
-  },
   "Client": {
-    "_id": "00000000-0000-0000-0000-000000000000",
+    "_id": "01917fb1-6d60-8abc-8abc-83938c48cec9",
     "_type": "Location",
+    "Name": "Example Client",
     "Identification": [
       {
-        "Type": "IntLocID",
-        "Identifier": "006620342"
+        "Type": "Example Identification Type",
+        "Identifier": "00001"
       }
-    ],
-    "Name": "Generic Automotive Company"
+    ]
   },
+  "ClientOrderNumber": "MX1232407270021aj",
   "Contractor": {
-    "_id": "00000000-0000-0000-0000-000000000000",
+    "_id": "01917fb1-6d60-8abc-8abc-ac49a8c54352",
     "_type": "TestingCenter",
     "Location": {
-      "_id": "00000000-0000-0000-0000-000000000000",
+      "_id": "01917fb1-6d60-8abc-8abc-950a711ad4d2",
       "_type": "Location",
-      "Name": "Testlab GmbH",
+      "Name": "TestLab",
       "Identification": [
         {
-          "Type": "IntLocID",
-          "Identifier": "180945476"
+          "Type": "Example Identification Type",
+          "Identifier": "00011"
         }
       ],
       "Address": {
-        "_id": "dd317ad2-70a8-4e92-be06-eb1f8d3e4bd1",
+        "_id": "01917fb1-6d60-8abc-8abc-002abdd41288",
         "_type": "ContactDetails",
-        "Phone": "+49 222 333 444",
-        "Fax": "+49 222 333 445",
-        "EMail": "info@testlab.com"
+        "EMail": "info@testlab.com",
+        "Fax": "\u002B49 222 333 441",
+        "Phone": "\u002B49 222 333 440"
       }
     },
     "TestingManager": {
-      "_id": "00000000-0000-0000-0000-000000000000",
+      "_id": "01917fb1-6d60-8abc-8abc-e9914c422dc7",
       "_type": "Person",
       "FirstName": "John",
       "LastName": "Doe",
-      "OrganizationIdentification": [
-        {
-          "Type": "IntLocID",
-          "Identifier": "180945476"
-        }
-      ],
-      "ID-Number": "9827398732",
+      "ID-Number": "108326",
       "EMail": "john.doe@testlab.com"
     },
     "Certifications": [
       {
-        "_id": "00000000-0000-0000-0000-000000000000",
+        "_id": "01917fb1-6d60-8abc-8abc-51e397accdb0",
         "_type": "Certification",
         "Specification": {
           "Authority": "DIN",
@@ -69,30 +55,38 @@
         },
         "AccreditationDate": {
           "Date": "2019-11-01"
-        },
-        "ValidUntil": {
-          "Date": "2024-11-01"
         }
       },
       {
-        "_id": "00000000-0000-0000-0000-000000000000",
+        "_id": "01917fb1-6d60-8abc-8abc-2619c6d9ea40",
         "_type": "Certification",
         "Specification": {
-          "Authority": "Manufacturer",
-          "Type": "BQF ECM",
-          "IssueDate": "2019-01",
-          "Number": "1001"
+          "Authority": "Example Authority",
+          "Type": "EXA",
+          "Number": "1001",
+          "IssueDate": "2019-01"
         },
         "AccreditationDate": {
-          "Date": "2019-11-01"
+          "Date": "2022-11-01"
+        },
+        "ValidUntil": {
+          "Date": "2025-11-01"
         }
       }
     ]
   },
-  "Signatory": "Examplius Tester",
+  "LaboratoryOrderNumber": "2025021100123TL03",
+  "OrderReference": "OR-20250212045327",
+  "OrderDate": {
+    "Date": "2025-02-12"
+  },
+  "ReportDate": {
+    "Date": "2025-02-24"
+  },
+  "Signatory": "John Doe",
   "Components": [
     {
-      "_id": "db218846-88c1-4cdb-a9b2-76925b1d6884",
+      "_id": "01917fb1-6d60-8abc-8abc-0412c6aff92b",
       "_type": "Component",
       "Designation": "Part 4711",
       "PartNumber": "X1234567890"
@@ -100,11 +94,12 @@
   ],
   "TestSeries": [
     {
-      "_id": "00000000-0000-0000-0000-000000000000",
+      "_id": "01917fb1-6d60-8abc-8abc-100000000001",
       "_type": "TestSeries",
       "PredecessorId": null,
       "SuccessorId": null,
       "Specification": {
+        "Authority": "VDA",
         "Type": "VDA",
         "Number": "270",
         "IssueDate": "2022-05",
@@ -114,43 +109,37 @@
       "TestType" : "VDA 270",
       "NumberOfExecutions": 1,
       "TestingCenter": {
-        "_id": "00000000-0000-0000-0000-000000000000",
+        "_id": "01917fb1-6d60-8abc-8abc-ac49a8c54353",
         "_type": "TestingCenter",
         "Location": {
-          "_id": "00000000-0000-0000-0000-000000000000",
+          "_id": "01917fb1-6d60-8abc-8abc-950a711ad4d3",
           "_type": "Location",
-          "Name": "Testlab GmbH",
+          "Name": "TestLab",
           "Identification": [
             {
-              "Type": "IntLocID",
-              "Identifier": "180945476"
+              "Type": "Example Identification Type",
+              "Identifier": "00011"
             }
           ],
           "Address": {
-            "_id": "7854f7d9-b651-40f8-b480-18101d83c9d7",
+            "_id": "01917fb1-6d60-8abc-8abc-002abdd41289",
             "_type": "ContactDetails",
-            "Phone": "+49 222 333 444",
-            "Fax": "+49 222 333 445",
-            "EMail": "info@testlab.com"
+            "EMail": "info@testlab.com",
+            "Fax": "\u002B49 222 333 441",
+            "Phone": "\u002B49 222 333 440"
           }
         },
         "TestingManager": {
-          "_id": "00000000-0000-0000-0000-000000000000",
+          "_id": "01917fb1-6d60-8abc-8abc-e9914c422dc8",
           "_type": "Person",
           "FirstName": "John",
           "LastName": "Doe",
-          "OrganizationIdentification": [
-            {
-              "Type": "IntLocID",
-              "Identifier": "180945476"
-            }
-          ],
-          "ID-Number": "5354435453",
+          "ID-Number": "108326",
           "EMail": "john.doe@testlab.com"
         },
         "Certifications": [
           {
-            "_id": "00000000-0000-0000-0000-000000000000",
+            "_id": "01917fb1-6d60-8abc-8abc-51e397accdb1",
             "_type": "Certification",
             "Specification": {
               "Authority": "DIN",
@@ -160,40 +149,40 @@
             },
             "AccreditationDate": {
               "Date": "2019-11-01"
-            },
-            "ValidUntil": {
-              "Date": "2024-11-01"
             }
           },
           {
-            "_id": "00000000-0000-0000-0000-000000000000",
+            "_id": "01917fb1-6d60-8abc-8abc-2619c6d9ea41",
             "_type": "Certification",
             "Specification": {
-              "Authority": "Manufacturer",
-              "Type": "BQF ECM",
-              "IssueDate": "2019-01",
-              "Number": "1001"
+              "Authority": "Example Authority",
+              "Type": "EXA",
+              "Number": "1001",
+              "IssueDate": "2019-01"
             },
             "AccreditationDate": {
-              "Date": "2019-11-01"
+              "Date": "2022-11-01"
+            },
+            "ValidUntil": {
+              "Date": "2025-11-01"
             }
           }
         ]
       },
       "Executions": [
         {
-          "_id": "00000000-0000-0000-0000-000000000000",
+          "_id": "01917fb1-6d60-8abc-8abc-110000000001",
           "_type": "TestExecution",
           "Numerator": 1,
           "Designation": "14345",
           "Specimen": {
-            "_id": "00000000-0000-0000-0000-000000000000",
+            "_id": "01917fb1-6d60-8abc-8abc-111000000001",
             "_type": "Specimen",
-            "Designation": "14345 // ffsfhhsjhf jsf // adüö // asddas // C323524324323",
+            "Designation": "Odor sample",
             "ComponentID": "db218846-88c1-4cdb-a9b2-76925b1d6884",
             "Flagging": "Test specimen according to attachment",
             "Attachment": {
-              "_id": "00000000-0000-0000-0000-000000000000",
+              "_id": "01917fb1-6d60-8abc-8abc-111100000001",
               "_type": "Attachment",
               "FileName": "sample_vda270.jpg",
               "MimeType": "application/jpeg",
@@ -209,7 +198,7 @@
             },
             "ProcessHistory": [
               {
-                "_id": "96410e2e-4437-4e38-8cca-3de62cac5cc9",
+                "_id": "01917fb1-6d60-8abc-8abc-111120000001",
                 "_type": "ProcessStep",
                 "Index": 1,
                 "Specification": {
@@ -221,7 +210,7 @@
                   "Type": ""
                 },
                 "ProcessData": {
-                  "_id": "00000000-0000-0000-0000-000000000000",
+                  "_id": "01917fb1-6d60-8abc-8abc-111120000002",
                   "_type": "InformationSet",
                   "Designation": "Preconditioning",
                   "Attributes": [
@@ -231,7 +220,7 @@
                       "Value": 7
                     },
                     {
-                      "Property": "EndDate",
+                      "Property": "End date",
                       "Value": {
                         "Date": "2023-09-25"
                       }
@@ -249,7 +238,7 @@
                       ]
                     },
                     {
-                      "Property": "Rel. Humidity",
+                      "Property": "Relative Humidity",
                       "Unit": "%",
                       "ValueType": "NumberWithTolerance",
                       "Value": [
@@ -265,7 +254,7 @@
               },
               {
                 "_type": "ProcessStep",
-                "_id": "7c2a9315-5e1b-49e9-af0f-b3eb5cda1ebc",
+                "_id": "01917fb1-6d60-8abc-8abc-111120000012",
                 "Index": 2,
                 "Specification": {
                   "Authority": "VDA",
@@ -276,7 +265,7 @@
                   "Number": "270"
                 },
                 "ProcessData": {
-                  "_id": "00000000-0000-0000-0000-000000000000",
+                  "_id": "01917fb1-6d60-8abc-8abc-111120000013",
                   "_type": "InformationSet",
                   "Designation": "Preconditioning",
                   "Attributes": [
@@ -293,7 +282,7 @@
                       ]
                     },
                     {
-                      "Property": "EndDate",
+                      "Property": "End date",
                       "Value": {
                         "Date": "2023-09-25"
                       }
@@ -320,7 +309,7 @@
               }
             ],
             "AdditionalProperties": {
-              "_id": "00000000-0000-0000-0000-000000000000",
+              "_id": "01917fb1-6d60-8abc-8abc-111120000015",
               "_type": "InformationSet",
               "Attributes": [
                 {
@@ -335,7 +324,7 @@
           ],
           "RawData": [
             {
-              "_id": "00000000-0000-0000-0000-000000000000",
+              "_id": "01917fb1-6d60-8abc-8abc-200000000001",
               "_type": "InformationSet",
               "Designation": "Odor test result",
               "ArraySpec": [
@@ -365,7 +354,7 @@
                   [
                   ],
                   [
-                    "dda5b902-63df-4913-9224-111111111111"
+                    "01917fb1-6d60-8abc-8abc-cd0000000011"
                   ]
                 ],
                 [
@@ -376,7 +365,7 @@
                   [
                   ],
                   [
-                    "dda5b902-63df-4913-9224-111111111111"
+                    "01917fb1-6d60-8abc-8abc-cd0000000011"
                   ]
                 ],
                 [
@@ -389,8 +378,8 @@
                     "geröstet / verbrannt"
                   ],
                   [
-                    "dda5b902-63df-4913-9224-111111111111",
-                    "66d4c362-4784-4bd2-a988-222222222222"
+                    "01917fb1-6d60-8abc-8abc-cd0000000011",
+                    "01917fb1-6d60-8abc-8abc-cd0000000012"
                   ]
                 ]
               ]
@@ -402,7 +391,7 @@
       ],
       "ConsolidatedCharacteristicValues": [
         {
-          "_id": "dda5b902-63df-4913-9224-111111111111",
+          "_id": "01917fb1-6d60-8abc-8abc-cd0000000011",
           "_type": "ConsolidatedCharacteristicValue",
           "Aggregation": "Rounded mean value",
           "Property": "Odor grading",
@@ -411,7 +400,7 @@
           "ValueResolution": 0.5
         },
         {
-          "_id": "66d4c362-4784-4bd2-a988-222222222222",
+          "_id": "01917fb1-6d60-8abc-8abc-cd0000000012",
           "_type": "ConsolidatedCharacteristicValue",
           "Aggregation": "None",
           "Property": "Odor impression",
