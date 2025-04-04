@@ -1322,28 +1322,8 @@
       "pattern": "^[\\u0020-\\u00FF]*$",
       "type": "string"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "VDA270.BranchingTestSeries": {
       "type": "object",
-
-
       "if": {
         "properties": {
           "Specification": {
@@ -1365,8 +1345,6 @@
           }
         }
       },
-
-
       "then": {
         "$ref": "#/$defs/VDA270.TestSeries"
       },
@@ -1470,21 +1448,6 @@
         "SuccessorId"
       ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "VDA270.TestExecution": {
       "additionalProperties": false,
       "properties": {
@@ -1545,8 +1508,6 @@
       ],
       "type": "object"
     },
-
-
     "VDA270.InformationSet": {
       "additionalProperties": false,
       "properties": {
@@ -1587,8 +1548,6 @@
       ],
       "type": "object"
     },
-
-
     "VDA270.ArraySpecEvaluation": {
       "type": "array",
       "minItems": 5,
@@ -1613,8 +1572,6 @@
         }
       ]
     },
-
-
     "VDA270.ArrayValueEvaluation": {
       "description": "An array value type for storing VDA 270 testing evaluations.",
       "prefixItems": [
@@ -1652,8 +1609,6 @@
       "maxItems": 5,
       "type": "array"
     },
-
-
     "VDA270.Specimen": {
       "additionalProperties": false,
       "properties": {
@@ -1701,8 +1656,6 @@
       ],
       "type": "object"
     },
-
-
     "VDA270.ProcessStep": {
       "type": "object",
       "description": "A schema representing a single step in a VDA 270 testing process.",
@@ -1717,8 +1670,6 @@
         }
       ]
     },
-
-
     "VDA270.ProcessStepPreconditioning": {
       "type": "object",
       "additionalProperties": false,
@@ -1740,9 +1691,6 @@
           "example": 1,
           "type": "integer"
         },
-
-
-
         "Specification": {
           "$ref": "#/$defs/Generic.Specification",
           "description": "The specification associated with this process step."
@@ -1759,11 +1707,6 @@
         }
       }
     },
-
-
-
-
-
     "VDA270.ConsolidatedCharacteristicValue": {
       "type": "object",
       "required": [
@@ -1779,8 +1722,6 @@
         }
       ]
     },
-
-
     "VDA270.ConsolidatedCharacteristicValueOdorGrading": {
       "type": "object",
       "unevaluatedProperties": false,
@@ -1828,8 +1769,6 @@
         "ValueResolution"
       ]
     },
-
-
     "VDA270.ConsolidatedCharacteristicValueOdorImpression": {
       "type": "object",
       "unevaluatedProperties": false,
@@ -1871,8 +1810,5 @@
         "LocalizedText"
       ]
     }
-
-
   }
 }
-
