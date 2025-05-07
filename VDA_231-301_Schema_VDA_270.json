@@ -1,5 +1,5 @@
 {
-  "$id": "https://github.com/VDA231-301/Draft_VDA231-301/blob/v0.0.2/main/VDA_270/VDA_231-301_Schema_VDA_270.json",
+  "$id": "https://github.com/VDA231-301/VDA_231-301__VDA_270/blob/main/VDA_231-301_Schema_VDA_270.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "VDA 231-301 TestReport JSON schema for VDA 270",
   "type": "object",
@@ -14,7 +14,7 @@
       "type": "string"
     },
     "_schemaVersion": {
-      "const": "0.0.2",
+      "const": "1.0.0",
       "description": "The schema version on which the structure of the test report is based on."
     },
     "Title": {
