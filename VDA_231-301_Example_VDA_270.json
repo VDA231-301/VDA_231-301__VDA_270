@@ -1,7 +1,7 @@
 {
   "_id": "01917fb1-6d60-8abc-8abc-017617032d5c",
   "_type": "TestReport",
-  "_schemaVersion": "0.0.2",
+  "_schemaVersion": "1.0.0",
   "Client": {
     "_id": "01917fb1-6d60-8abc-8abc-83938c48cec9",
     "_type": "Location",
