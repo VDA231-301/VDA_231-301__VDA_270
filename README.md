@@ -6,3 +6,6 @@
   - Example test report JSON: [VDA_231-301_Example_VDA_270.json](./VDA_231-301_Example_VDA_270.json)
   - Standard source: https://webshop.vda.de/VDA/de/vda-270-052022
   - Version: 1.0.0
+
+# Info
+- The subschema does not include the changes of the generic Schema v0.2.0
