@@ -1,6 +1,6 @@
 {
   "_id": "01917fb1-6d60-8abc-8abc-017617032d5c",
-  "_type": "TestReport",
+  "_type": "TestingProject",
   "_schemaVersion": "1.0.0",
   "Client": {
     "_id": "01917fb1-6d60-8abc-8abc-83938c48cec9",
@@ -67,10 +67,10 @@
           "IssueDate": "2019-01"
         },
         "AccreditationDate": {
-          "Date": "2022-11-01"
+          "Date": "2023-11-01"
         },
         "ValidUntil": {
-          "Date": "2025-11-01"
+          "Date": "2026-11-01"
         }
       }
     ]
@@ -84,12 +84,19 @@
     "Date": "2025-02-24"
   },
   "Signatory": "John Doe",
-  "Components": [
+  "ComponentMasters": [
     {
       "_id": "01917fb1-6d60-8abc-8abc-0412c6aff92b",
-      "_type": "Component",
+      "_type": "ComponentMaster",
       "Designation": "Part 4711",
-      "PartNumber": "X1234567890"
+      "PartNumber": "X1234567890",
+      "Instances": [
+        {
+          "_id": "db218846-88c1-4cdb-a9b2-76925b1d6884",
+          "_type": "ComponentInstance",
+          "SerialNumber": "SN0123456789XY"
+        }
+      ]
     }
   ],
   "TestSeries": [
@@ -103,11 +110,12 @@
         "Type": "VDA",
         "Number": "270",
         "IssueDate": "2022-05",
-        "Title": "Odor test",
+        "Title": "Determination of the odour characteristics of trim materials in motor vehicles",
         "FeatureText": "Variant 3B"
       },
       "TestType" : "VDA 270",
       "NumberOfExecutions": 1,
+      "ComponentMasterID": "01917fb1-6d60-8abc-8abc-0412c6aff92b",
       "TestingCenter": {
         "_id": "01917fb1-6d60-8abc-8abc-ac49a8c54353",
         "_type": "TestingCenter",
@@ -148,7 +156,7 @@
               "IssueDate": "2018-03"
             },
             "AccreditationDate": {
-              "Date": "2019-11-01"
+              "Date": "2024-11-01"
             }
           },
           {
@@ -161,10 +169,10 @@
               "IssueDate": "2019-01"
             },
             "AccreditationDate": {
-              "Date": "2022-11-01"
+              "Date": "2023-11-01"
             },
             "ValidUntil": {
-              "Date": "2025-11-01"
+              "Date": "2026-11-01"
             }
           }
         ]
@@ -179,7 +187,7 @@
             "_id": "01917fb1-6d60-8abc-8abc-111000000001",
             "_type": "Specimen",
             "Designation": "Odor sample",
-            "ComponentID": "db218846-88c1-4cdb-a9b2-76925b1d6884",
+            "ComponentInstanceID": "db218846-88c1-4cdb-a9b2-76925b1d6884",
             "Flagging": "Test specimen according to attachment",
             "Attachment": {
               "_id": "01917fb1-6d60-8abc-8abc-111100000001",
@@ -322,71 +330,56 @@
           },
           "MeasurementSystems": [
           ],
-          "RawData": [
-            {
-              "_id": "01917fb1-6d60-8abc-8abc-200000000001",
-              "_type": "InformationSet",
-              "Designation": "Odor test result",
-              "ArraySpec": [
-                {
-                  "Property": "Tester number"
-                },
-                {
-                  "Property": "Odor grading",
-                  "Unit": "Grade"
-                },
-                {
-                  "Property": "Odor impressions"
-                },
-                {
-                  "Property": "Localized odor impressions"
-                },
-                {
-                  "Property": "ConsolidatedValueIDs"
-                }
+          "SingleResults": {
+            "_id": "01917fb1-6d60-8abc-8abc-200000000001",
+            "_type": "InformationSet",
+            "Designation": "Odor testing result",
+            "ArraySpec": [
+              {
+                "Property": "Tester number"
+              },
+              {
+                "Property": "Odor grading",
+                "Unit": "Grade"
+              },
+              {
+                "Property": "Odor impressions"
+              },
+              {
+                "Property": "Localized odor impressions"
+              }
+            ],
+            "ArrayValue": [
+              [
+                1,
+                3.5,
+                [
+                ],
+                [
+                ]
               ],
-              "ArrayValue": [
+              [
+                2,
+                3.5,
                 [
-                  1,
-                  3.5,
-                  [
-                  ],
-                  [
-                  ],
-                  [
-                    "01917fb1-6d60-8abc-8abc-cd0000000011"
-                  ]
+                  "burned"
                 ],
                 [
-                  2,
-                  3.5,
-                  [
-                  ],
-                  [
-                  ],
-                  [
-                    "01917fb1-6d60-8abc-8abc-cd0000000011"
-                  ]
+                  "verbrannt"
+                ]
+              ],
+              [
+                3,
+                4,
+                [
+                  "roasted"
                 ],
                 [
-                  3,
-                  4,
-                  [
-                    "roasted / burnt"
-                  ],
-                  [
-                    "geröstet / verbrannt"
-                  ],
-                  [
-                    "01917fb1-6d60-8abc-8abc-cd0000000011",
-                    "01917fb1-6d60-8abc-8abc-cd0000000012"
-                  ]
+                  "geröstet"
                 ]
               ]
-            }
-          ],
-          "SingleResults": [
-          ]
+            ]
+          }
         }
       ],
       "ConsolidatedCharacteristicValues": [
@@ -397,15 +390,32 @@
           "Property": "Odor grading",
           "Unit": "Grade",
           "Value": 3.5,
-          "ValueResolution": 0.5
+          "ValueResolution": 0.5,
+          "SingleResultIDs": [
+            "01917fb1-6d60-8abc-8abc-200000000001"
+          ]
         },
         {
           "_id": "01917fb1-6d60-8abc-8abc-cd0000000012",
           "_type": "ConsolidatedCharacteristicValue",
           "Aggregation": "None",
           "Property": "Odor impression",
-          "Value": "roasted / burnt",
-          "LocalizedText": "geröstet / verbrannt"
+          "Value": "burnt",
+          "LocalizedText": "verbrannt",
+          "SingleResultIDs": [
+            "01917fb1-6d60-8abc-8abc-200000000001"
+          ]
+        },
+        {
+          "_id": "01917fb1-6d60-8abc-8abc-cd0000000013",
+          "_type": "ConsolidatedCharacteristicValue",
+          "Aggregation": "None",
+          "Property": "Odor impression",
+          "Value": "roasted",
+          "LocalizedText": "geröstet",
+          "SingleResultIDs": [
+            "01917fb1-6d60-8abc-8abc-200000000001"
+          ]
         }
       ]
     }

@@ -1,0 +1,219 @@
+{
+  "$id": "https://vda231-301.github.io/schemas/VDA_270/VDA_231-301_VDA_270_2022-05.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VDA 231-301 testing project JSON schema for VDA 270 2022-05",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://vda231-301.github.io/schemas/generic/VDA_231-301_generic_v1.0.0.schema.json"
+    }
+  ],
+  "properties": {
+    "TestSeries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "if": {
+          "$ref": "#/$defs/VDA270.TestSeriesCondition"
+        },
+        "then": {
+          "$ref": "#/$defs/VDA270.TestSeries"
+        }
+      },
+      "contains": {
+        "$ref": "#/$defs/VDA270.TestSeriesCondition"
+      }
+    }
+  },
+  "$defs": {
+    "VDA270.TestSeriesCondition": {
+      "type": "object",
+      "properties": {
+        "Specification": {
+          "type": "object",
+          "properties": {
+            "Type": {
+              "type": "string",
+              "const": "VDA"
+            },
+            "Number": {
+              "type": "string",
+              "const": "270"
+            },
+            "IssueDate": {
+              "type": "string",
+              "const": "2022-05"
+            }
+          }
+        }
+      }
+    },
+    "VDA270.TestSeries": {
+      "type": "object",
+      "properties": {
+        "Executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VDA270.TestExecution"
+          }
+        },
+        "ConsolidatedCharacteristicValues": {
+          "type": "array",
+          "minItems": 1,
+          "prefixItems": [
+            {
+              "$ref": "#/$defs/VDA270.ConsolidatedCharacteristicValueOdorGrading"
+            }
+          ],
+          "items": {
+            "$ref": "#/$defs/VDA270.ConsolidatedCharacteristicValueOdorImpression"
+          }
+        }
+      }
+    },
+    "VDA270.TestExecution": {
+      "type": "object",
+      "properties": {
+        "SingleResults": {
+          "$ref": "#/$defs/VDA270.SingleResultsInformationSet"
+        }
+      },
+      "required": [
+        "SingleResults"
+      ]
+    },
+    "VDA270.SingleResultsInformationSet": {
+      "type": "object",
+      "properties": {
+        "Designation": {
+          "type": "string",
+          "const": "Odor testing result"
+        },
+        "ArraySpec": {
+          
+          "$ref": "#/$defs/VDA270.ArraySpecEvaluation"
+        },
+        "ArrayValue": {
+          "items": {
+            "$ref": "#/$defs/VDA270.ArrayValueEvaluation"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "Designation",
+        "ArraySpec",
+        "ArrayValue"
+      ]
+    },
+    "VDA270.ArraySpecEvaluation": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "An array specification for storing VDA 270 testing evaluations.",
+      "const": [
+        {
+          "Property": "Tester number"
+        },
+        {
+          "Property": "Odor grading",
+          "Unit": "Grade"
+        },
+        {
+          "Property": "Odor impressions"
+        },
+        {
+          "Property": "Localized odor impressions"
+        }
+      ]
+    },
+    "VDA270.ArrayValueEvaluation": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "An array value type for storing VDA 270 testing evaluations.",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        {
+          "type": "number",
+          "multipleOf": 0.5,
+          "minimum": 1.0,
+          "maximum": 6.0
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "VDA270.ConsolidatedCharacteristicValueOdorGrading": {
+      "type": "object",
+      "properties": {
+        "Aggregation": {
+          "const": "Rounded mean value"
+        },
+        "Property": {
+          "const": "Odor grading"
+        },
+        "Unit": {
+          "const": "Grade"
+        },
+        "Value": {
+          "type": "number",
+          "multipleOf": 0.5,
+          "minimum": 1.0,
+          "maximum": 6.0
+        },
+        "ValueResolution": {
+          "const": 0.5
+        }
+      },
+      "required": [
+        "Aggregation",
+        "Property",
+        "Unit",
+        "Value",
+        "ValueResolution",
+        "SingleResultIDs"
+      ]
+    },
+    "VDA270.ConsolidatedCharacteristicValueOdorImpression": {
+      "type": "object",
+      "properties": {
+        "Aggregation": {
+          "const": "None"
+        },
+        "Property": {
+          "const": "Odor impression",
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "LocalizedText": {
+          "$ref": "https://vda231-301.github.io/schemas/generic/VDA_231-301_generic_v1.0.0.schema.json#/$defs/Generic.ProperNameString"
+        }
+      },
+      "required": [
+        "Aggregation",
+        "Property",
+        "Value",
+        "LocalizedText",
+        "SingleResultIDs"
+      ]
+    }
+  }
+}
